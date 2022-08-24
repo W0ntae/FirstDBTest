@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.employeeList.Employee.mapper.EmployeeMapper">
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into employee (Name,Address)
+        values (#{name}, #{address})
+    </insert>
+
+    <update id="update">
+        update item
+        set Name=#{updateParam.name},
+            Address=#{updateParam.address}
+        where id = #{id}
+    </update>
+
+    <select id="findById" resultType="Item">
+        select name, address
+        from testdb.employee
+        where id = #{id}
+    </select>
+
+    <select id="findAll" resultType="Item">
+        select name, address
+        from testdb.employee
+    </select>
+</mapper>
