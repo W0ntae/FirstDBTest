@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<body>
+<table>
+    <tr>
+        <th>UserID</th>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.UserID}">NA</td>
+        <td th:text="${employee.Name}">NA</td>
+        <td th:text="${employee.Address}">NA</td>
+    </tr>
+</table>
+</body>
+</html>
