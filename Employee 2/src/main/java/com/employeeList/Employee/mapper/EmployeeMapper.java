@@ -10,11 +10,11 @@ import java.util.Optional;
 
 @Mapper
 public interface EmployeeMapper {
-  void save(Employee employee);
+  void add(Employee employee);
   
-  void update(@Param("id") Long id, @Param("updateParam") EmployeeUpdated updateParam);
+  void update(@Param("id") Long id, @Param("updateParam")EmployeeUpdated updateParam);
   
-  List<Employee> findAll();
+  List<Employee> findEmployees();
   
   Optional<Employee> findById(Long id);
 }

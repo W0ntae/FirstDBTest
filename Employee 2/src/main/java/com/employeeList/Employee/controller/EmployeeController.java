@@ -1,5 +1,6 @@
 package com.employeeList.Employee.controller;
 
+import com.employeeList.Employee.domain.Employee;
 import com.employeeList.Employee.service.EmployeeService;
 
 import lombok.Data;
@@ -17,10 +18,15 @@ public class EmployeeController{
   private final EmployeeService employeeService;
   
   
-  @GetMapping("employees")
+  @GetMapping("employee/view")
   public String getAll(Model model){
-    model.addAttribute("employee/viewEmployee", employeeService.findAll());
-    
-    return "employee/viewEmployee.html";
+    List<Employee> employees = employeeService.findAll();
+    model.addAttribute("employees", employees);
+    return "employee/viewEmployee";
+  }
+  
+  @GetMapping("employee/add")
+  public String addEmployee(){
+    return "employee/addEmployee";
   }
 }

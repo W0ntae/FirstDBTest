@@ -5,24 +5,24 @@
 
     <insert id="save" useGeneratedKeys="true" keyProperty="id">
         insert into employee (Name,Address)
-        values (#{name}, #{address})
+        values (#{username}, #{address})
     </insert>
 
     <update id="update">
         update item
-        set Name=#{updateParam.name},
+        set Name=#{updateParam.username},
             Address=#{updateParam.address}
         where id = #{id}
     </update>
 
-    <select id="findById" resultType="Item">
-        select name, address
-        from testdb.employee
+    <select id="findById" resultType="Employee">
+        select Name, Address
+        from employees
         where id = #{id}
     </select>
 
-    <select id="findAll" resultType="Item">
-        select name, address
-        from testdb.employee
+    <select id="findEmployees" resultType="Employee">
+        select *
+        from employees
     </select>
 </mapper>

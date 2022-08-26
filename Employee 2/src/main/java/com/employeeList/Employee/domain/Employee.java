@@ -1,11 +1,10 @@
 package com.employeeList.Employee.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter @Setter
+@Data
 public class Employee {
-  Long id;
+  Long userId;
   String name;
   String address;
 }

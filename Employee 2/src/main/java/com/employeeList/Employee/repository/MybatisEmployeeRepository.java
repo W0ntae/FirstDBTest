@@ -16,7 +16,7 @@ public class MybatisEmployeeRepository implements EmployeeRepository{
   
   @Override
   public Employee save(Employee employee) {
-    employeeMapper.save(employee);
+    employeeMapper.add(employee);
     return employee;
   }
   
@@ -32,6 +32,6 @@ public class MybatisEmployeeRepository implements EmployeeRepository{
   
   @Override
   public List<Employee> findAll() {
-    return employeeMapper.findAll();
+    return employeeMapper.findEmployees();
   }
 }
