@@ -3,16 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.employeeList.Employee.mapper.EmployeeMapper">
 
-    <insert id="save" useGeneratedKeys="true" keyProperty="id">
-        insert into employee (Name,Address)
-        values (#{username}, #{address})
+    <insert id="add">
+        insert into employees (Name,Address)
+        values (#{name}, #{address})
     </insert>
 
     <update id="update">
-        update item
-        set Name=#{updateParam.username},
-            Address=#{updateParam.address}
-        where id = #{id}
+        update employees
+        set Name=#{name},
+            Address=#{address}
+        where UserId = #{id}
     </update>
 
     <select id="findById" resultType="Employee">
@@ -25,4 +25,10 @@
         select *
         from employees
     </select>
+
+    <delete id="delete">
+        delete
+        from employees
+        where UserID = #{UserId}
+    </delete>
 </mapper>

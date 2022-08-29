@@ -2,8 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
 <body>
-<h1><input maxlength="50" name="UserID" size="10" type="text" value="UserID" /></h1>
-
-<p><input name="Remove" type="button" value="Remove" /></p>
+<table>
+    <tr>
+        <th>UserID</th>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.userId}">NA</td>
+        <td th:text="${employee.name}">NA</td>
+        <td th:text="${employee.address}">NA</td>
+    </tr>
+</table>
+    <form action="" method="post">
+        <input type="text" id="UserId" name="UserId" value="UserId"><br>
+        <input type="submit" value="Remove">
+    </form>
 </body>
 </html>

@@ -13,6 +13,7 @@ import java.util.Optional;
 public class EmployeeServiceV1 implements EmployeeService{
   
   private final EmployeeRepository employeeRepository;
+  private Employee employee;
   
   @Override
   public Optional<Employee> findById(Long id) {
@@ -22,5 +23,22 @@ public class EmployeeServiceV1 implements EmployeeService{
   @Override
   public List<Employee> findAll() {
     return employeeRepository.findAll();
+  }
+  
+  @Override
+  public void addEmployee(Employee employee) {
+    String employeeName = employee.getName();
+    String employeeAddress = employee.getAddress();
+    employeeRepository.addEmployee(employeeName,employeeAddress);
+  }
+  
+  @Override
+  public void removeEmployee(Employee employee) {
+    employeeRepository.removeEmployee(employee.getUserId());
+  }
+  
+  @Override
+  public void updateEmployee(Employee employee) {
+    employeeRepository.update(employee.getUserId(), employee.getName(), employee.getAddress());
   }
 }

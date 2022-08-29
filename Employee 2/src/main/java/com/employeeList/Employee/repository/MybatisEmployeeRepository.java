@@ -15,14 +15,13 @@ public class MybatisEmployeeRepository implements EmployeeRepository{
   
   
   @Override
-  public Employee save(Employee employee) {
-    employeeMapper.add(employee);
-    return employee;
+  public void addEmployee(String name, String address) {
+    employeeMapper.add(name, address);
   }
   
   @Override
-  public void update(Long UserID, EmployeeUpdated updateParam) {
-    employeeMapper.update(UserID, updateParam);
+  public void update(Long UserId, String name, String address) {
+    employeeMapper.update(UserId, name, address);
   }
   
   @Override
@@ -33,5 +32,10 @@ public class MybatisEmployeeRepository implements EmployeeRepository{
   @Override
   public List<Employee> findAll() {
     return employeeMapper.findEmployees();
+  }
+  
+  @Override
+  public void removeEmployee(Long UserId) {
+    employeeMapper.delete(UserId);
   }
 }
