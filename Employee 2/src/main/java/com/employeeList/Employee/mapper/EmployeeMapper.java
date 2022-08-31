@@ -1,7 +1,6 @@
 package com.employeeList.Employee.mapper;
 
 import com.employeeList.Employee.domain.Employee;
-import com.employeeList.Employee.repository.EmployeeUpdated;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
